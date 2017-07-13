@@ -55,6 +55,7 @@ if nargin >= 2
     end
 else
     tol = 1e-06;
+    solver = 'cplex';
 end
 
 [n_mets n_rxns] = size(S);
