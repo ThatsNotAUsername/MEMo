@@ -1,0 +1,38 @@
+What is it ?
+------------
+
+The iMCS toolbox is a collection of scripts (Shell, Matlab and Python) to compute irreversible minimal cut sets in a metabolic network. The main script is a Shell script (iMCS_computation.sh). Inside the Shell script are called different functions implemented in Matlab and Python. Also a java tool called Polco is used.
+
+Installation
+------------
+To be able to use this toolbox several instalations are required.
+First, different linear programs are used in Matlab with two different solvers : Cplex and Gurobi. Thus it's necessary to have at least one of these solvers. Academic license are available on their websites. To read SBML file in Matlab we used the function readCBmodel which is available in the COBRA toolbox. 
+A tool implemented in Python called SageMath was used to contract matroid. 
+The tool Polco to enumerate a generating of set a polyhedral cone was used.
+
+Once you installed all these tools you can use the shell script iMCS_computation.sh.
+
+Running examples
+----------------
+There are different inputs in iMCS_computation.sh. The path of the metabolic network (-p), the method used to compute MMBs (-m),the maximum cardinality of iMCS we are looking for (-c), the solver used for linear programs (-s), the number of digits after the decimal points (-d). The latter is necessary when using LP solver to define the tolerance. The only input required is the path of the metabolic network. The default method is the computation of MMBs using the whole cone, the default cardinality is 1e09, the default solver is Gurobi with a number of digits of 9.
+
+So given a network network.xml located in the current folder, we can find iMCS with a cardinality not exceeding 10, using the gurobi solver for linear programs and 8 digits after the decimal points doing : 
+
+   
+bash iMCS_computation.sh -n network.xml -c 10 -s gurobi -d 8
+
+and if we want to eliminate reversible reactions to compute MMBS
+
+bash iMCS_computation.sh -n network.xml -m elimination -c 10 -s gurobi -d 8
+
+
+Authors
+-------
+Annika Röhl FB Mathematik und Informatik, Freie Universitat Berlin, Berlin, 14195, Germany.
+Tanguy Riou Master student at Centrale Nantes, France.
+Alexander Bockmayr FB Mathematik und Informatik, Freie Universitat Berlin, Berlin, 14195, Germany.
+
+To report errors please contact annika.roehl@fu-berlin.de
+
+
+TO DO: Path for cplex and gutobi into the file 'preprocess'
