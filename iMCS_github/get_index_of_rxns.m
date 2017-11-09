@@ -7,7 +7,8 @@ function [ rxns_index] = get_index_of_rxns(network,varargin)
 rxns_index=[];
 if nargin==1
     
-cells_biomass=strfind(upper(network.rxnNames),'BIOMASS');
+%cells_biomass=strfind(upper(network.rxnNames),'BIOMASS');
+cells_biomass=strfind(upper(network.rxns),'BIOMASS');
 
 rxns_index=find(~cellfun(@isempty,cells_biomass));
 
@@ -23,7 +24,8 @@ l=length(rxns_index);
     else for i=1:(nargin-1)
         rxn_name=varargin{i};
 
-        cells_obj_rxns=strfind(upper(network.rxnNames),upper(rxn_name)); 
+%        cells_obj_rxns=strfind(upper(network.rxnNames),upper(rxn_name));
+         cells_obj_rxns=strfind(upper(network.rxns),upper(rxn_name));  
 
         new_index=find(~cellfun(@isempty,cells_obj_rxns));
         l= length(new_index);

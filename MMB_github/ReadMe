@@ -6,9 +6,12 @@ The iMCS toolbox is a collection of scripts (Shell, Matlab and Python) to comput
 Installation
 ------------
 To be able to use this toolbox several instalations are required.
-First, different linear programs are used in Matlab with two different solvers : Cplex and Gurobi. Thus it's necessary to have at least one of these solvers. Academic license are available on their websites. To read SBML file in Matlab we used the function readCBmodel which is available in the COBRA toolbox. 
+First, different linear programs are used in Matlab with two different solvers : Cplex and Gurobi. Thus it's necessary to have at least one of these solvers. Academic license are available on their websites. To read SBML file in Matlab we used the function readCBmodel which is available in the COBRA toolbox, but mat-files can be used as well. 
 A tool implemented in Python called SageMath was used to contract matroid. 
 The tool Polco to enumerate a generating of set a polyhedral cone was used.
+
+You have to set the path to your solve in the files "pre_processing_mmb.m", "correctModel.m", and "hitting_sets.m"
+
 
 Once you installed all these tools you can use the shell script iMCS_computation.sh.
 
